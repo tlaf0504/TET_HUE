@@ -1,0 +1,15 @@
+\input{preamble.tex}
+
+\begin{document}
+% **************************************************************************************************
+% titlepage
+\input{./base/titlepage_\DocumentType}\emptydoublepage
+
+% for thesis: switch to frontmatter
+\ifthenelse{\equal{\DocumentType}{thesis}}{\pagestyle{empty}\pagenumbering{roman}}{}
+
+
+\pagebreak
+
+\FloatBarrier\label{end-of-document}
+\end{document}

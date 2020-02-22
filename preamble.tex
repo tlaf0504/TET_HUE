@@ -1,0 +1,105 @@
+% basic setup
+\newcommand{\DocumentType}{homework} % "thesis" / "report" / "homework"
+\newcommand{\DocumentLanguage}{de} % "en" / "de"
+\newcommand{\PaperSize}{a4paper} % "a4paper" / "letterpaper"
+\newcommand{\Twosided}{false} % "true" / "false"
+
+% **************************************************************************************************
+% template setup -- do not change these unless you know what you are doing!
+\input{./base/packages_\DocumentType}
+\input{./base/layout_\DocumentType}
+\input{./base/macros}
+% **************************************************************************************************
+% ATTENTION: There is a stylesheet provided for makeindex; set makeindex to -s "./base/index.sty"
+% **************************************************************************************************
+% uncomment to get watermarks:
+% \usepackage[first,bottom,light,draft]{draftcopy}
+% \draftcopyName{ENTWURF}{160}
+% **************************************************************************************************
+% information fields
+% general
+\newcommand{\DocumentTitle}{Theorie der Elektrotechnik, UE}
+\newcommand{\DocumentSubtitle}{Hausübung}
+\newcommand{\ShortTitle}{} % used in headers (keep short!)
+\newcommand{\DocumentAuthor}{}
+\newcommand{\DocumentDate}{Graz, \today}
+%    for thesis only (will be ignored for reports)
+\newcommand{\ThesisType}{Homework}
+\newcommand{\Organizations}{IGTE \\ Graz University of Technology, Austria }
+\newcommand{\Supervisors}{}
+\newcommand{\Assessors}{}
+\newcommand{\SpecialNote}{}
+\newcommand{\RevPrefix}{alpha~}
+\newcommand{\RevLarge}{1}
+\newcommand{\RevSmall}{0}
+
+% confidential? (can of course also be used for other messages/notes)
+\newcommand{\ConfidNote}{\today}
+% **************************************************************************************************
+% miscellaneous
+
+% correct bad hyphenation
+\hyphenation{}
+
+% switches
+\newboolean{OptDraftMode}
+\newboolean{DisplayContentBoxes}
+% \setboolean{OptDraftMode}{true} % optional draft mode for pixel graphics (speed up generation; add \OptDraft to options)
+% \setboolean{DisplayContentBoxes}{true} % optional boxes with contents (\ContentBox{Content}{NumPages} can be used as "sticky note" with planned contents)
+%   load
+\input{./base/opt_macros}
+
+
+%% Added by Tobias Lafer (1530012) on 16.4.2017:
+\usepackage[makeroom]{cancel}
+\usepackage{nicefrac}
+\usepackage{trfsigns}
+\usepackage{graphicx}
+
+\newcommand{\myL}[1]{\overline{#1}}
+% "mbeq": must be equal
+\newcommand{\mbeq}{\overset{!}{=}}
+\newcommand{\dbUl}[1]{\underline{\underline{#1}}}
+\newcommand{\m}[1]{\mathbf{#1}}
+\newcommand{\D}[1]{\overset{.}{#1}}
+\newcommand{\transm}[1]{e^{\m{#1} t}}
+\newcommand{\VEC}[1]{ \mathit{vec} \{ #1 \} }
+
+
+\usepackage[makeroom]{cancel}
+\usepackage{nicefrac}
+\usepackage{framed} 
+\usepackage{xcolor}
+\usepackage{siunitx}
+
+
+\lstset{language=Octave}
+\lstset{
+backgroundcolor=\color{white},
+breakatwhitespace=false,    
+breaklines=true,
+commentstyle=\color{green},
+extendedchars=true,
+keepspaces=true,
+keywordstyle=\color{blue},
+numbers=left,                    
+%numbersep=5pt,               
+numberstyle=\tiny\color{gray},
+stringstyle=\color{red},
+tabsize=2,
+basicstyle=\footnotesize,
+captionpos=b,
+rulecolor=\color{black},
+showspaces=false,                
+showstringspaces=false,          
+showtabs=false,
+morekeywords={c2d, acker, ones,regulator_equations, kron, reshape}
+}
+\renewcommand{\lstlistingname}{Code}
+
+\newcommand{\code}[1]{\lstinline|#1|}
+
+
+%% Added by Michael Pürstner (01530406) on 25.04.2018
+\usepackage{etoolbox}
+\AtBeginEnvironment{bmatrix}{\renewcommand\arraystretch{1.5}}
