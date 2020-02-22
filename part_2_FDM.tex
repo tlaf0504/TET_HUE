@@ -1,0 +1,51 @@
+% !TEX root = main.tex
+
+\newchapter{Finite Differenzen Methode}{}
+\newsection{Theoretische Grundlagen}{}
+Das zu lösende Randwertproblem ist wie folg definiert:
+\begin{align}
+	\label{eq:Randwretproblem}
+	-\varepsilon \Delta V &=  \rho  \text{ mit }\\
+	V &= V_D \text{ auf } \Gamma_D \nonumber\\
+	\pDiff{V}{n} &= V_N \text{ auf } \Gamma_N \nonumber
+\end{align}
+
+wobei \begin{align}
+	\label{eq:LaplaceV}
+	\Delta V = \pDiffDiff{V}{x} + \pDiffDiff{V}{y} + \pDiffDiff{V}{z}
+\end{align}
+
+In den gegebenen Beispielen ist $\varepsilon$ konstant und $\neq 0$, $\rho = 0$ und $V_N = 0$. Des Weiteren gilt aufgrung der Ausdehnung des Problems $\pDiff{}{z} = 0$, womit sich das Randwertproblem (\ref{eq:Randwretproblem}) wie folgt vereinfacht:
+\begin{align}
+	\label{eq:Randwertproblem_simple}
+	&\pDiffDiff{V}{x} + \pDiffDiff{V}{y} = 0 \text{ mit }\\
+	&V = V_D \text{ auf } \Gamma_D \nonumber\\
+	&\pDiff{V}{n} = 0 \text{ auf } \Gamma_N \nonumber
+\end{align}
+
+Man nehme nun eine konstante \textit{Schrittweite} $h$ an und führe folgende Notation ein:
+\begin{align*}
+	V_{i,j} = V(ih,jh),\quad i,j\geq 0
+\end{align*}
+
+Die Linearisierung der Differentialgleichung in \myRef{eq:Randwertproblem_simple} liefert somit
+\begin{align*}
+	\frac{V_{i+1,j} - 2V_{i,j} + V_{i-1,j}}{h^2} + \frac{V_{i,j+1} - 2V_{i,j} + V_{i,j-1}}{h^2} = 0
+\end{align*}
+bzw. unter Berücksichtigung der Konstanz von $h$
+\begin{align}
+	\label{eq:lin_eq}
+	-4V_{i,j} + V_{i+1,j} + V_{i-1,j} + V_{i,j+1} + V_{i,j-1} = 0.
+\end{align}
+
+Das Problemgebiet wird somit in Quadrate der Seitenlänge $h$ diskretisiert wobei die \textit{Knotenpotentiale} an den Gitterknotenpunkten durch Lösen des aus \myRef{eq:lin_eq} entstehenden linearen Gleichungssystems ermittelt werden. Die vorgegebenen Potentiale am dirichletschen Rand $\Gamma_D$ fließen als bekannte Größen in das Gleichungssystem ein. \newline
+Ferner sei ohne weitere Herleitung gesagt, dass die Behandlung der \textbf{homogenen} neumannschen Randbedingungen keiner weiteren Aufmerksamkeit bedarf. Hier sei auf die entsprechende Fachliteratur verwiesen. \newline
+Die genaue Vorgehensweise zur Lösung des Problems mit der oben genannten Methode wird im folgenden Kapitel anhand eines einfachen Beispiels erläutert.
+
+\newsection{Funktion des FDM-Algorithmus}{}
+	
+	
+
+     
+
+
